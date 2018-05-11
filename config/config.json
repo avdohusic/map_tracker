@@ -1,0 +1,10 @@
+{
+  "port": 3000,
+  "pingTimeout": 5000,
+  "pingInterval": 4000,
+  "mongodb": {
+    "host": "mongodb://localhost",
+    "port": 27017,
+    "project": "map_tracker"
+  }
+}
