@@ -1,35 +1,17 @@
-let mongoose = require('mongoose'),
-    Category = mongoose.model('Category');
+let categoryService = require('../services/category');
 
 exports.getAll = function (req, res) {
-    Category.find({}, function (err, categories) {
-        if(err)
-            throw err;
-        res.json(categories);
-    })
+    categoryService.getAll(req, res);
 };
 
 exports.create = function (req, res) {
-    let newCategory = new Category(req.body);
-    newCategory.save(function (err, category) {
-        if(err)
-            throw err;
-        res.json(category);
-    })
+    categoryService.create(req, res);
 };
 
 exports.update = function (req, res) {
-    Category.findOneAndUpdate({_id: req.params._id}, req.body, {new: true}, function (err, category) {
-        if(err)
-            throw err;
-        res.json(category);
-    });
+    categoryService.update(req, res);
 };
 
 exports.delete = function (req, res) {
-    Category.remove({_id: req.params._id}, function (err, category) {
-        if(err)
-            throw err;
-        res.json({ message: 'Category successfully deleted' });
-    });
+    categoryService.delete(req, res);
 };
