@@ -4,13 +4,13 @@ let mongoose = require('mongoose'),
 exports.getAll = function (req, res) {
     let conditions = {};
     if(req.query.category)
-        conditions = {category: req.query.category};
+        conditions = { category: req.query.category };
 
     Marker.find(conditions, function (err, markers) {
         if(err)
             throw err;
         res.json(markers);
-    })
+    }).populate('category', 'name');
 };
 
 exports.getById = function (req, res) {
@@ -18,7 +18,7 @@ exports.getById = function (req, res) {
      if(err)
          throw err;
      res.json(marker);
-  });
+  }).populate('category', 'name');
 };
 
 exports.create = function (req, res) {

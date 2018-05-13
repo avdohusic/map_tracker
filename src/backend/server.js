@@ -3,8 +3,8 @@ let express = require('express'),
     app = express(),
     mongoose = require('mongoose'),
     bodyParser = require('body-parser'),
-    Marker = require('./api/models/marker'),
-    Category = require('./api/models/category');
+    Category = require('./api/models/category'),
+    Marker = require('./api/models/marker');
 
 //Set connection to Mongoose
 mongoose.Promise = global.Promise;

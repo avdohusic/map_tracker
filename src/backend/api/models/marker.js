@@ -1,11 +1,9 @@
 let mongoose = require('mongoose');
+let Schema = mongoose.Schema;
 
 //Marker schema
-let markerSchema = mongoose.Schema({
-    category:{
-        type: String,
-        required: false
-    },
+let markerSchema = Schema({
+    category: [{ type: Schema.Types.ObjectId, ref: 'Category' }],
     location: {
         type: {type: String, default: 'Point'},
         coordinates: {type: [Number], default: [0, 0]}
